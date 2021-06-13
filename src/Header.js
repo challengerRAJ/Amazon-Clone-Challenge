@@ -104,7 +104,7 @@ const HeaderNaviItems = styled.div`
 `
 
 const HeaderOption = styled.div`
-    padding: 10px 9px 10px 8px;
+    padding: 10px 9px 10px 9px;
 `
     //padding-left:9px;
     //padding-right:9px;
