@@ -11,9 +11,9 @@ function Header() {
             </HeaderLogo>
 
             <HeaderOptionAddress>
+                <LocationOnIcon/>
                 <HeaderOption>
-                    <LocationOnIcon/>
-                    <OptionLineOne>hello</OptionLineOne>
+                    <OptionLineOne>Hello</OptionLineOne>
                     <OptionLineTwo>Select your address</OptionLineTwo>
                 </HeaderOption>
             </HeaderOptionAddress>
@@ -27,7 +27,7 @@ function Header() {
 
             <HeaderNaviItems>
                 <HeaderOption>
-                    <OptionLineOne>Hello Raj</OptionLineOne>
+                    <OptionLineOne>Hello, Raj</OptionLineOne>
                     <OptionLineTwo>Accounts & Lists</OptionLineTwo>
                 </HeaderOption>
                     
@@ -35,11 +35,11 @@ function Header() {
                     <OptionLineOne>Returns</OptionLineOne>
                     <OptionLineTwo>& Orders</OptionLineTwo>
                 </HeaderOption>
-
                 <HeaderOptionCart>
-                    <ShoppingCartIcon/>
-                    <CartCount>5</CartCount>
-                    <OptionLineOne>Cart</OptionLineOne>
+                        <ShoppingCartIcon/>
+                        <CartCount>5</CartCount>
+                        <OptionLineOne>Cart</OptionLineOne>
+                    
                 </HeaderOptionCart>
             </HeaderNaviItems>
         </Container>
@@ -83,9 +83,14 @@ height: 40px;
 border-radius: 4px;
 overflow: hidden;
 margin-left: 4px;
+backgound-color:white;
+:focus-within{
+    box-shadow:0 0 0 3px #F90;
+}
 `
 const HeaderSearchInput = styled.input`
 flex-grow:1;
+border:0;
 :focus{
     outline:none;
 }
@@ -100,11 +105,12 @@ align-items:center;
 `
 
 const HeaderNaviItems = styled.div`
-
+    display: flex;
 `
 
 const HeaderOption = styled.div`
-    padding: 10px 9px 10px 8px;
+    padding: 10px 9px 10px 9px;
+    cursor: Pointer;
 `
     //padding-left:9px;
     //padding-right:9px;
@@ -115,8 +121,11 @@ const HeaderOptionCart = styled.div`
 display: flex;
 align-items:center;
 padding-right:9px;
-padding-
+color: white;
+text-decoration: none;
 `
 const CartCount = styled.div`
-
+    padding-left: 4px;
+    font-weight: 700;
+    color: #f08804;
 `
