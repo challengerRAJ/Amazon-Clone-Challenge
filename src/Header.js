@@ -3,11 +3,25 @@ import styled from 'styled-components'
 import SearchIcon from '@material-ui/icons/Search'; // for search bar icon
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'; //for shopping cart icon
 import LocationOnIcon from '@material-ui/icons/LocationOn'; 
-function Header() {
+import {
+    Link
+} from 'react-router-dom'
+function Header({ cartItems }) {
+//console.log(cartItems);
+    const getCount = () => {
+            let count = 0;
+            cartItems.forEach((item) => {
+                count += item.product.quantity;
+            })
+        return count;
+    }
+
     return (
         <Container>
             <HeaderLogo>
-                <img src={"https://mikekitko.com/wp-content/uploads/2019/10/amazon-logo-white-768x232.png"}/>
+                <Link to="/">
+                    <img src={"https://mikekitko.com/wp-content/uploads/2019/10/amazon-logo-white-768x232.png"}/>
+                </Link>
             </HeaderLogo>
 
             <HeaderOptionAddress>
@@ -35,12 +49,14 @@ function Header() {
                     <OptionLineOne>Returns</OptionLineOne>
                     <OptionLineTwo>& Orders</OptionLineTwo>
                 </HeaderOption>
+                
                 <HeaderOptionCart>
+                    <Link to = "/cart">
                         <ShoppingCartIcon/>
-                        <CartCount>5</CartCount>
-                        <OptionLineOne>Cart</OptionLineOne>
-                    
+                        <CartCount>{getCount()}</CartCount>
+                    </Link>
                 </HeaderOptionCart>
+                
             </HeaderNaviItems>
         </Container>
     )
@@ -119,13 +135,17 @@ const HeaderOption = styled.div`
 
 const HeaderOptionCart = styled.div`
 display: flex;
-align-items:center;
-padding-right:9px;
-color: white;
-text-decoration: none;
+a{
+    display: flex;
+    align-items:center;
+    padding-right:9px;
+    color: white;
+    text-decoration: none;
+}
 `
 const CartCount = styled.div`
     padding-left: 4px;
     font-weight: 700;
     color: #f08804;
+    
 `
